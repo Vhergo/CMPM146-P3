@@ -31,12 +31,12 @@ def setup_behavior_tree():
     spread_action = Action(spread)
     spread_sequence.child_nodes = [neutral_planet_check, spread_action]
 
-    # offensive_plan = Sequence(name='Offensive Strategy')
-    # largest_fleet_check = Check(have_largest_fleet)
-    # attack = Action(attackBot)
-    # offensive_plan.child_nodes = [largest_fleet_check, attack]
+    offensive_plan = Sequence(name='Offensive Strategy')
+    largest_fleet_check = Check(have_largest_fleet)
+    attack = Action(attackBot)
+    offensive_plan.child_nodes = [largest_fleet_check, attack]
 
-    # root.child_nodes = [offensive_plan, spread_sequence, attack.copy()]
+    root.child_nodes = [offensive_plan, spread_sequence, attack.copy()]
 
     logging.info('\n' + root.tree_to_string())
     return root
